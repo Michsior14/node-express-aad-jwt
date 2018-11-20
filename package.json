@@ -1,6 +1,6 @@
 {
   "name": "express-aad-jwt",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "AAD JWT authentication middleware.",
   "keywords": [
     "auth",
@@ -34,12 +34,10 @@
     }
   ],
   "main": "./lib",
+  "types": "./index.d.ts",
   "dependencies": {
     "express-unless": "0.0.0",
-    "jsonwebtoken": "^5.0.0"
-  },
-  "devDependencies": {
-    "mocha": "1.x.x"
+    "azure-ad-jwt": "^1.1.0"
   },
   "engines": {
     "node": ">= 0.4.0"
