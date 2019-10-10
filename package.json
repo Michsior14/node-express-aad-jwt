@@ -1,6 +1,6 @@
 {
-  "name": "express-aad-jwt",
-  "version": "0.1.5",
+  "name": "express-azure-jwt",
+  "version": "0.2.0",
   "description": "AAD JWT authentication middleware.",
   "keywords": [
     "auth",
@@ -18,10 +18,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/dei79/node-express-aad-jwt.git"
+    "url": "git://github.com/Michsior14/node-express-aad-jwt.git"
   },
   "bugs": {
-    "url": "http://github.com/dei79/node-express-aad-jwt/issues"
+    "url": "http://github.com/Michsior14/node-express-aad-jwt/issues"
   },
   "author": {
     "name": "Dirk Eisenberg",
