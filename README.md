@@ -1,15 +1,13 @@
-# express-aad-jwt
-
-[![Build](https://travis-ci.org/dei79/node-express-aad-jwt.png)](http://travis-ci.org/dei79/node-express-aad-jwt)
+# express-azure-jwt
 
 Middleware that validates JsonWebTokens issued from Azure Active Directory and sets `req.user`.
 
 This module lets you authenticate HTTP requests using JWT tokens issued from Azure Active Directory in your Node.js
-applications.  JWTs are typically used to protect API endpoints, and are often issued using OpenID Connect.
+applications. JWTs are typically used to protect API endpoints, and are often issued using OpenID Connect.
 
 ## Install
 
-    $ npm install express-aad-jwt
+    npm install express-azure-jwt
 
 ## Usage
 
@@ -20,14 +18,12 @@ to be used by later middleware for authorization and access control.
 For example,
 
 ```javascript
-var jwt = require('express-aad-jwt');
+var jwt = require("express-azure-jwt");
 
-app.get('/protected',
-  jwt(),
-  function(req, res) {
-    if (!req.user.admin) return res.send(401);
-    res.send(200);
-  });
+app.get("/protected", jwt(), function(req, res) {
+  if (!req.user.admin) return res.send(401);
+  res.send(200);
+});
 ```
 
 You can specify audience as well:
@@ -41,7 +37,7 @@ jwt(audience: 'https://graph.windows.net'})
 Optionally you can make some paths unprotected as follows:
 
 ```javascript
-app.use(jwt().unless({path: ['/token']}));
+app.use(jwt().unless({ path: ["/token"] }));
 ```
 
 This is especially useful when applying to multiple routes.
@@ -49,18 +45,17 @@ This is especially useful when applying to multiple routes.
 By default, the decoded token is attached to `req.user` but can be configured with the `requestProperty` option.
 
 ```javascript
-jwt({ requestProperty: 'auth' });
+jwt({ requestProperty: "auth" });
 ```
 
 ### Error handling
 
 The default behavior is to throw an error when the token is invalid, so you can add your custom logic to manage unauthorized access as follows:
 
-
 ```javascript
-app.use(function (err, req, res, next) {
-  if (err.name === 'UnauthorizedError') {
-    res.send(401, 'invalid token...');
+app.use(function(err, req, res, next) {
+  if (err.name === "UnauthorizedError") {
+    res.send(401, "invalid token...");
   }
 });
 ```
@@ -82,10 +77,11 @@ If you have found a bug or if you have a feature request, please report them at 
 
 ## Tests
 
-    $ npm install
-    $ npm test
+    npm install
+    npm test
 
 ## Contributors
+
 Check them our [here](https://github.com/dei79/node-express-aad-jwt/graphs/contributors)
 
 ## License

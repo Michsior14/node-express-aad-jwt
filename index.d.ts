@@ -46,11 +46,12 @@ declare namespace aadJwt {
 
     constructor(code: ErrorCode, error: { message: string });
   }
+
+  export interface User {}
 }
-declare global {
-  namespace Express {
-    export interface Request {
-      user?: any;
-    }
+
+declare namespace Express {
+  export interface Request {
+    user?: aadJwt.User;
   }
 }
